@@ -30,3 +30,13 @@ Personal, tool-agnostic standing instructions. Applies across editors and coding
 
 - User-level only. Do not add `AGENTS.md`, `CLAUDE.md`, or editor rules to a repository unless the user asks.
 - Client-specific skills and overlay installers live in private per-client repos, not here.
+
+## Cursor Cloud specific instructions
+
+This repo is content, not an application: markdown skills (`skills/`, vendored `.agents/skills/` pinned by `skills-lock.json`), standing instructions (`AGENTS.md`), and one Bash entrypoint (`install.sh`). There is nothing to compile or serve.
+
+- Dependencies: none. `node`, `npm`/`npx`, `python3`, and `bash` are preinstalled in the base image; the repo has no `package.json`, lockfile (in the language sense), or virtualenv, so the startup update script is a no-op.
+- Run / "build": `./install.sh` from the repo root. It additively symlinks every skill dir and `AGENTS.md` into user discovery paths (`~/.agents`, `~/.claude`, `~/.cursor`, `~/.codex`, `~/.kiro`, `~/.grok`). It is idempotent (re-running refreshes kit-owned links) and never overwrites a path it does not own (foreign files are skipped), so it is safe to re-run. It writes into `$HOME`, not the repo tree.
+- Lint / test / build / CI: none are defined in the repo. The closest to a lint is a Bash syntax check: `bash -n install.sh`. Do not claim a lint/test suite exists.
+- Optional vendored-skill restore: `npx skills experimental_install` (reads `skills-lock.json`; needs network). The `skills` CLI wants Node `>=22.20`; the base image Node is slightly older, which only emits an `EBADENGINE` warning.
+- `INSTALL_THIRD_PARTY=1 ./install.sh` only does extra work when a `catalog.json` exists; there is none in this repo, so it is otherwise a no-op branch.
