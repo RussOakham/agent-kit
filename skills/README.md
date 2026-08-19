@@ -1,7 +1,10 @@
 # Skills
 
-Add one directory per skill. Each directory must contain a `SKILL.md` with Agent Skills frontmatter (`name`, `description`). See https://agentskills.io
+Two locations:
 
-`install.sh` symlinks each top-level skill folder into user-level discovery paths. It never overwrites a name that already exists and is not already a link into this kit.
+- **`skills/`** — skills you write yourself (`SKILL.md` + optional scripts/references).
+- **`.agents/skills/`** — third-party skills vendored with `npx skills add … --copy -y`, pinned in [`skills-lock.json`](../skills-lock.json).
+
+`install.sh` symlinks both trees into user-level agent discovery paths. It never overwrites a name that already exists unless the existing link points into this kit.
 
 Keep skills generic and portable. Organisation- or project-specific skills belong in a compositor repo or the target project's own tree.

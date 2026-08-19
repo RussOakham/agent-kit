@@ -17,6 +17,23 @@ This repo does **not** install shell dotfiles, editor themes, or project-level c
 
 `install.sh` never overwrites a path it does not already own and never clones other git remotes.
 
+## Bundled skills
+
+| Skill | Source | Pin |
+| --- | --- | --- |
+| ask-matt | [mattpocock/skills](https://github.com/mattpocock/skills) | tag `v1.2.3` |
+| code-review | mattpocock/skills | tag `v1.2.3` |
+| diagnosing-bugs | mattpocock/skills | tag `v1.2.3` |
+| grill-me | mattpocock/skills | tag `v1.2.3` |
+| handoff | mattpocock/skills | tag `v1.2.3` |
+| resolving-merge-conflicts | mattpocock/skills | tag `v1.2.3` |
+| tdd | mattpocock/skills | tag `v1.2.3` |
+| writing-for-agents | mattpocock/skills | tag `v1.2.3` |
+| blast-radius | [cursor/plugins](https://github.com/cursor/plugins) (pstack) | branch `main` |
+| unslop | cursor/plugins (pstack) | branch `main` |
+
+[`skills-lock.json`](skills-lock.json) records `ref` (tag, branch, or commit) plus `computedHash`. Restore with `npx skills experimental_install`. `cursor/plugins` has no tags, so those two skills pin to `main`.
+
 ## Install
 
 Clone once, then run the installer:
@@ -38,7 +55,9 @@ On Windows, run this inside WSL `$HOME` if that is where you code.
 ### Optional third-party catalog
 
 ```bash
-INSTALL_THIRD_PARTY=1 ~/.local/share/agent-kit/install.sh
+cd ~/.local/share/agent-kit
+npx skills experimental_install
+./install.sh
 ```
 
 On Gitpod, catalog install stays off unless `INSTALL_THIRD_PARTY=1` is set, so the dotfiles timeout is not spent on `npx`.
@@ -134,7 +153,7 @@ Rules of thumb:
 
 ## Add a skill
 
-Create `skills/your-skill-name/SKILL.md` with `name` and `description` frontmatter. Re-run `install.sh`.
+See [`skills/README.md`](skills/README.md).
 
 See `skills/README.md` for layout and `workflows/README.md` for optional supporting docs.
 

@@ -4,7 +4,11 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-SKILLS_SRC="${ROOT}/skills"
+# Author your own under skills/; third-party copies live in .agents/skills/ (see skills-lock.json).
+SKILL_SOURCES=(
+  "${ROOT}/skills"
+  "${ROOT}/.agents/skills"
+)
 AGENTS_SRC="${ROOT}/AGENTS.md"
 
 SKILL_ROOTS=(
@@ -65,10 +69,12 @@ link_additive() {
   log "link     ${dest}"
 }
 
-install_skills() {
+install_skills_from_dir() {
+  local skills_src="$1"
   local skill_dir name dest_root
+  [[ -d "$skills_src" ]] || return 0
   shopt -s nullglob
-  for skill_dir in "${SKILLS_SRC}"/*/; do
+  for skill_dir in "${skills_src}"/*/; do
     [[ -f "${skill_dir}SKILL.md" ]] || continue
     name="$(basename "$skill_dir")"
     for dest_root in "${SKILL_ROOTS[@]}"; do
@@ -76,6 +82,13 @@ install_skills() {
     done
   done
   shopt -u nullglob
+}
+
+install_skills() {
+  local skills_src
+  for skills_src in "${SKILL_SOURCES[@]}"; do
+    install_skills_from_dir "$skills_src"
+  done
 }
 
 install_agents_md() {
