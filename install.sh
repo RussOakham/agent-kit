@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Additive, client-agnostic installer. Never clones other repos.
+# Additive user-level installer. Never clones other repos.
 # Never overwrites unmanaged files. Never writes into a project working tree.
 set -euo pipefail
 

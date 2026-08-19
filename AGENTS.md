@@ -1,6 +1,6 @@
 # Agent instructions
 
-Personal, tool-agnostic standing instructions. Applies across editors and coding agents. Keep this file short. Put specialised workflows in `skills/`.
+Personal, tool-agnostic standing instructions for coding agents. Keep this file short. Put specialised workflows in `skills/`.
 
 ## Working style
 
@@ -25,8 +25,3 @@ Personal, tool-agnostic standing instructions. Applies across editors and coding
 - Only commit or push when the user asks.
 - Do not rewrite published history.
 - Pull-request descriptions should explain why, not restated diffs.
-
-## Scope
-
-- User-level only. Do not add `AGENTS.md`, `CLAUDE.md`, or editor rules to a repository unless the user asks.
-- Client-specific skills and overlay installers live in private per-client repos, not here.
