@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "skills": {
+    "ask-matt": {
+      "source": "mattpocock/skills",
+      "ref": "v1.2.3",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/ask-matt/SKILL.md",
+      "computedHash": "b2e8ef5ffc2f142022c1e1e1bba68073f0821356a8e1cf1b23670f61d13fe50b"
+    },
+    "blast-radius": {
+      "source": "cursor/plugins",
+      "ref": "main",
+      "sourceType": "github",
+      "skillPath": "pstack/skills/blast-radius/SKILL.md",
+      "computedHash": "29c76d37a04163f5005cec955e4cdd0311783322d0c6bf478577955b6fefea40"
+    },
+    "code-review": {
+      "source": "mattpocock/skills",
+      "ref": "v1.2.3",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/code-review/SKILL.md",
+      "computedHash": "1d5e7242a98674635be79ab310cdda0e555d36a9903d2526ebf4263d0b7997ca"
+    },
+    "diagnosing-bugs": {
+      "source": "mattpocock/skills",
+      "ref": "v1.2.3",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/diagnosing-bugs/SKILL.md",
+      "computedHash": "c86c725ad271ba57d7e9ffd86122b898438314ef9c20ec1dbe03f3e8f149c3b2"
+    },
+    "grill-me": {
+      "source": "mattpocock/skills",
+      "ref": "v1.2.3",
+      "sourceType": "github",
+      "skillPath": "skills/productivity/grill-me/SKILL.md",
+      "computedHash": "f361db4e15e6bfd562a9282b1dccda513910a50061f9e838ce017be9c69dde3f"
+    },
+    "handoff": {
+      "source": "mattpocock/skills",
+      "ref": "v1.2.3",
+      "sourceType": "github",
+      "skillPath": "skills/productivity/handoff/SKILL.md",
+      "computedHash": "ad03e8d4ea3cbbff66420eb7ba3cc375b5cbe1821a2449b53e863256cf5b5cde"
+    },
+    "resolving-merge-conflicts": {
+      "source": "mattpocock/skills",
+      "ref": "v1.2.3",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/resolving-merge-conflicts/SKILL.md",
+      "computedHash": "28aad6f8b1b7025abc8892fa8890f68fe1533499b28a565f416b159131d22fad"
+    },
+    "tdd": {
+      "source": "mattpocock/skills",
+      "ref": "v1.2.3",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/tdd/SKILL.md",
+      "computedHash": "614ac2e45fb0ec02f6ce422d26bd9aa4e33aa4867323f5a3a5c0c20b96f78ff4"
+    },
+    "unslop": {
+      "source": "cursor/plugins",
+      "ref": "main",
+      "sourceType": "github",
+      "skillPath": "pstack/skills/unslop/SKILL.md",
+      "computedHash": "3dfc2afeda677e12c6065497a40df7d895859de1c7d1cffb899b1559d129fe4f"
+    },
+    "writing-for-agents": {
+      "source": "mattpocock/skills",
+      "ref": "v1.2.3",
+      "sourceType": "github",
+      "skillPath": "skills/productivity/writing-for-agents/SKILL.md",
+      "computedHash": "ccfa1e94d8f6ab5c6a1edd55293ca477faf93c39207771331efdb1e798ed21d6"
+    }
+  }
+}

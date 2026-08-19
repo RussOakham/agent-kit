@@ -6,12 +6,29 @@ This repository is standalone. It does not install shell dotfiles, editor themes
 
 ## What you get
 
-- `skills/` — [Agent Skills](https://agentskills.io) (`SKILL.md` packages)
+- `skills/` — skills you author
+- `.agents/skills/` — vendored third-party skills (pinned in `skills-lock.json`)
 - `AGENTS.md` — standing instructions ([AGENTS.md](https://agents.md) convention)
 - `install.sh` — additive symlinks into user-level discovery paths
-- `catalog.json` — optional third-party skills (`npx skills add`), off by default
 
 `install.sh` never overwrites a path it does not already own, never clones other git remotes, and never writes into a project working tree.
+
+## Bundled skills
+
+| Skill | Source | Pin |
+| --- | --- | --- |
+| ask-matt | [mattpocock/skills](https://github.com/mattpocock/skills) | tag `v1.2.3` |
+| code-review | mattpocock/skills | tag `v1.2.3` |
+| diagnosing-bugs | mattpocock/skills | tag `v1.2.3` |
+| grill-me | mattpocock/skills | tag `v1.2.3` |
+| handoff | mattpocock/skills | tag `v1.2.3` |
+| resolving-merge-conflicts | mattpocock/skills | tag `v1.2.3` |
+| tdd | mattpocock/skills | tag `v1.2.3` |
+| writing-for-agents | mattpocock/skills | tag `v1.2.3` |
+| blast-radius | [cursor/plugins](https://github.com/cursor/plugins) (pstack) | branch `main` |
+| unslop | cursor/plugins (pstack) | branch `main` |
+
+[`skills-lock.json`](skills-lock.json) records `ref` (tag, branch, or commit) plus `computedHash`. Restore with `npx skills experimental_install`. `cursor/plugins` has no tags, so those two skills pin to `main`.
 
 ## Install
 
@@ -29,13 +46,13 @@ git -C ~/.local/share/agent-kit pull --ff-only
 
 On Windows, run this inside WSL `$HOME` if that is where you code.
 
-Optional third-party catalog:
+If `.agents/skills/` is missing after clone, restore from the lockfile then install:
 
 ```bash
-INSTALL_THIRD_PARTY=1 ~/.local/share/agent-kit/install.sh
+cd ~/.local/share/agent-kit
+npx skills experimental_install
+./install.sh
 ```
-
-On Gitpod, catalog install stays off unless `INSTALL_THIRD_PARTY=1` is set, so the 120s dotfiles timeout is not spent on `npx`.
 
 ## Where files land
 
@@ -55,9 +72,9 @@ Each skill directory with a `SKILL.md` is linked (when the name is free) into:
 - `~/.grok/AGENTS.md`
 - `~/.claude/CLAUDE.md`
 
-## Add a skill
+## Add or update skills
 
-Create `skills/your-skill-name/SKILL.md` with `name` and `description` frontmatter. Re-run `install.sh`.
+See [`skills/README.md`](skills/README.md).
 
 ## Client overlays
 
